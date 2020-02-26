@@ -41,6 +41,7 @@
     <ClInclude Include="menuFirstOption.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="rock.h" />
+    <ClInclude Include="soil.h" />
     <ClInclude Include="tree.h" />
     <ClInclude Include="worldElem.h" />
   </ItemGroup>

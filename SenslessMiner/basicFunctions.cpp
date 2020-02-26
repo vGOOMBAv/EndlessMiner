@@ -4,7 +4,7 @@
 
 void clearScreen()
 {
-	for (auto i = 0; i < 50; i++)std::cout << "\n";
+	for (auto i = 0; i < 100; i++)std::cout << "\n";
 }
 
 

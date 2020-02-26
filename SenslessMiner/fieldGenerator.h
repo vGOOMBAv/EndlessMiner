@@ -8,10 +8,12 @@
 
 class FieldGenerator {
 private:
+	unsigned int x;
+	unsigned int y;
 	bool randomElemHealth = 0;
 	bool randomElemDrop = 0;
 public:
 	std::vector<GeneratorWorldElem> fieldGeneratorArray;
 	FieldGenerator(unsigned int x, unsigned int y);
-	void generateElement();
+	bool checkNearbyCells(unsigned int cellPosition);
 };
