@@ -24,9 +24,13 @@
     <ClCompile Include="fieldGenerator.cpp" />
     <ClCompile Include="gameBody.cpp" />
     <ClCompile Include="gameField.cpp" />
+    <ClCompile Include="grass.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="menuFirstOption.cpp" />
+    <ClCompile Include="rock.cpp" />
+    <ClCompile Include="soil.cpp" />
+    <ClCompile Include="tree.cpp" />
     <ClCompile Include="worldElem.cpp" />
   </ItemGroup>
   <ItemGroup>

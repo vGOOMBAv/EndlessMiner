@@ -3,5 +3,5 @@
 
 class Grass :public WorldElem {
 public:
-	unsigned int type = 1;
+	Grass();
 };

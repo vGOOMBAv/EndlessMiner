@@ -7,5 +7,5 @@
 
 void GameBody::start(unsigned int x, unsigned int y)
 {
-	FieldGenerator fieldGenerator(x, y);
+
 }

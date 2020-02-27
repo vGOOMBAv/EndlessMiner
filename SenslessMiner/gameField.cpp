@@ -5,4 +5,6 @@
 GameField::GameField(unsigned int x, unsigned int y)
 {
 	FieldGenerator fieldGenerator(x,y);
+	field = fieldGenerator.fieldGeneratorEndArray;
+
 }

@@ -3,7 +3,7 @@
 
 class Tree :public WorldElem {
 public:
-	unsigned int type = 2;
-	bool canWalkThrough = 1;
+	Tree();
+	bool canWalkThrough = 0;
 
 };
