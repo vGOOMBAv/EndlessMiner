@@ -5,6 +5,6 @@
 class Interface {
 public:
 	//void showInterface();
-	void showField(std::vector<WorldElem> enteredVector, unsigned int xSize);
+	void showField(const std::vector<WorldElem>& enteredVector, unsigned int xSize);
 	void showElement(WorldElem worldElem);
 };

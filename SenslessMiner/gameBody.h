@@ -5,5 +5,5 @@
 class GameBody{
 public:
 	void start(unsigned int x, unsigned int y);
-	void spawnPlayer(std::vector<WorldElem>& field);
+	unsigned int spawnPlayer(std::vector<WorldElem>& field);
 };

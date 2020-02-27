@@ -4,6 +4,4 @@
 class Tree :public WorldElem {
 public:
 	Tree();
-	bool canWalkThrough = 0;
-
 };

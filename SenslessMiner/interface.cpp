@@ -2,7 +2,7 @@
 #include "basicFunctions.h"
 #include <iostream>
 
-void Interface::showField(std::vector<WorldElem> enteredVector, unsigned int xSize)
+void Interface::showField(const std::vector<WorldElem>& enteredVector, unsigned int xSize)
 {
 	clearScreen();
 	auto xCheck = 0;

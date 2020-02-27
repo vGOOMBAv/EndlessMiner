@@ -47,31 +47,6 @@ FieldGenerator::FieldGenerator(unsigned int xE, unsigned int yE)
 		}
 	}
 
-	for (auto i = 0; i < sizeOfField; i++) {
-		unsigned int switchType = fieldGeneratorArray[i].type;
-		Soil soil;
-		Grass grass;
-		Tree tree;
-		Rock rock;
-		switch (switchType) {
-		case 0:
-			fieldGeneratorEndArray.push_back(soil);
-			break;
-		case 1:
-			fieldGeneratorEndArray.push_back(grass);
-			break;
-		case 2:
-			fieldGeneratorEndArray.push_back(tree);
-			break;
-		case 3:
-			fieldGeneratorEndArray.push_back(rock);
-			break;
-		default:
-			std::cout << "Field generator Switch error";
-			exit(-1);
-			break;
-		}
-	}
 }
 
 FieldGenerator::FieldGenerator()

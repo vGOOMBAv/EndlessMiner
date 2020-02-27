@@ -7,13 +7,13 @@
 
 void Menu::showMenu()
 {
+	clearScreen();
 	MenuFirstOption menuFirstOption;
 	Controller controller;
 	if (state == 0) {
 		std::cout << "SENSLESS MINER\n\n";
 		std::cout << "Press any key to continue";
 		controller.readKeyboard();
-		clearScreen();
 		state = 1;
 		showMenu();
 	}
