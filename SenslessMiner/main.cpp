@@ -9,11 +9,12 @@ using namespace std;
 #include "menuFirstOption.h"
 #include "fieldGenerator.h"
 #include "gameField.h"
+#include "gameBody.h"
 
 int main(void) {
 	
-	GameField gameField(3,3);
-	
+	Menu menu;
+	menu.showMenu();
 
 
 

@@ -25,6 +25,7 @@
     <ClCompile Include="gameBody.cpp" />
     <ClCompile Include="gameField.cpp" />
     <ClCompile Include="grass.cpp" />
+    <ClCompile Include="interface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="menuFirstOption.cpp" />
@@ -41,8 +42,10 @@
     <ClInclude Include="gameField.h" />
     <ClInclude Include="generatorWorldElem.h" />
     <ClInclude Include="grass.h" />
+    <ClInclude Include="interface.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="menuFirstOption.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="rock.h" />
     <ClInclude Include="soil.h" />

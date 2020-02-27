@@ -83,11 +83,11 @@ FieldGenerator::FieldGenerator()
 bool FieldGenerator::checkNearbyCells(unsigned int cellPosition)
 {
 	unsigned int truthCounter = 0;
-	std::cout << cellPosition << std::endl;
+	//std::cout << cellPosition << std::endl;
 	unsigned int cellPositionRow = cellPosition / x;
-	std::cout << "cellPositionRow: " << cellPositionRow << std::endl;
+	//std::cout << "cellPositionRow: " << cellPositionRow << std::endl;
 	unsigned int cellPositionColumn = cellPosition - cellPositionRow * x;
-	std::cout << "cellPositionColumn: " << cellPositionColumn << std::endl;
+	//std::cout << "cellPositionColumn: " << cellPositionColumn << std::endl;
 	//right check
 	if (cellPositionColumn != x-1) {
 		if (

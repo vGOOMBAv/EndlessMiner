@@ -4,6 +4,7 @@ class WorldElem {
 public:
 	unsigned int elemHealth = 3;
 	unsigned int droppedAmmountOfRes = 3;
+	bool playerPosition = 0;
 	void elemHit();
 	bool canWalkThrough = 1;
 	unsigned int type = -1;
