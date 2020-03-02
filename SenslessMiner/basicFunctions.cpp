@@ -4,7 +4,8 @@
 
 void clearScreen()
 {
-	for (auto i = 0; i < 100; i++)std::cout << "\n";
+	//for (auto i = 0; i < 100; i++)std::cout << "\n";
+	std::cout << "\033[H\033[J";
 }
 
 void space()

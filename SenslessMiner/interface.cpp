@@ -27,7 +27,7 @@ void Interface::showElement(WorldElem worldElem)
 			break;
 		}
 		else {
-			std::cout << "P";
+			std::cout << "#";
 			space();
 			break;
 		}
@@ -38,7 +38,7 @@ void Interface::showElement(WorldElem worldElem)
 			break;
 		}
 		else {
-			std::cout << "P";
+			std::cout << "#";
 			space();
 			break;
 		}
@@ -49,7 +49,7 @@ void Interface::showElement(WorldElem worldElem)
 			break;
 		}
 		else {
-			std::cout << "P";
+			std::cout << "#";
 			space();
 			break;
 		}
@@ -60,7 +60,7 @@ void Interface::showElement(WorldElem worldElem)
 			break;
 		}
 		else {
-			std::cout << "P";
+			std::cout << "#";
 			space();
 			break;
 		}
