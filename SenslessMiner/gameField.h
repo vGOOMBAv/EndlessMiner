@@ -9,4 +9,5 @@ class GameField {
 public:
 	GameField(unsigned int x, unsigned int y);
 	std::vector<WorldElem> field;
+	size_t numberOfObstacles = 0;
 };

@@ -13,7 +13,7 @@ GameField::GameField(unsigned int x, unsigned int y)
 	FieldGenerator fieldGenerator(x,y);
 
 	for (auto i = 0; i < x*y; i++) {
-		unsigned int switchType = fieldGenerator.fieldGeneratorArray[i].type;
+		size_t switchType = fieldGenerator.fieldGeneratorArray[i].type;
 		Soil soil;
 		Grass grass;
 		Tree tree;
@@ -27,9 +27,11 @@ GameField::GameField(unsigned int x, unsigned int y)
 			break;
 		case 2:
 			field.push_back(tree);
+			numberOfObstacles++;
 			break;
 		case 3:
 			field.push_back(rock);
+			numberOfObstacles++;
 			break;
 		default:
 			std::cout << "GameField Switch error";
