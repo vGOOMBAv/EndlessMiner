@@ -4,6 +4,6 @@
 
 class GameBody{
 public:
-	void start(unsigned int x, unsigned int y);
+	void start(size_t x, size_t y, bool randomElemHealth, bool randomAmmountOfDroppedResources);
 	unsigned int spawnPlayer(std::vector<WorldElem>& field);
 };

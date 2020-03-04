@@ -99,30 +99,33 @@ void Controller::playerRIGHT(std::vector<WorldElem>& field, unsigned int& player
 	player.playerDirection = direction::RIGHT;
 }
 
-void Controller::cellHit(std::vector<WorldElem>& field, unsigned int cellPos, Player& player)
+void Controller::cellHit(GameField& gameField, unsigned int cellPos, Player& player)
 {
-	if (--field[cellPos].elemHealth == 0) {
-		cellDestruction(field, cellPos, player);
+	if (gameField.field[cellPos].type == 2 || gameField.field[cellPos].type == 3) {
+		if (--gameField.field[cellPos].elemHealth == 0) {
+			cellDestruction(gameField, cellPos, player);
+		}
 	}
 }
 
-void Controller::cellDestruction(std::vector<WorldElem>& field, unsigned int cellPos, Player& player)
+void Controller::cellDestruction(GameField& gameField, unsigned int cellPos, Player& player)
 {
+	gameField.numberOfObstacles--;
 	//tree
-	if (field[cellPos].type == 2) {
-		field[cellPos].type = 1;
-		field[cellPos].canWalkThrough = 1;
-		player.ammountOfWood = player.ammountOfWood + field[cellPos].droppedAmmountOfRes;
+	if (gameField.field[cellPos].type == 2) {
+		gameField.field[cellPos].type = 1;
+		gameField.field[cellPos].canWalkThrough = 1;
+		player.ammountOfWood = player.ammountOfWood + gameField.field[cellPos].droppedAmmountOfRes;
 	}
 	//rock
-	if (field[cellPos].type == 3) {
-		field[cellPos].type = 0;
-		field[cellPos].canWalkThrough = 1;
-		player.ammoutOfRock = player.ammoutOfRock + field[cellPos].droppedAmmountOfRes;
+	if (gameField.field[cellPos].type == 3) {
+		gameField.field[cellPos].type = 0;
+		gameField.field[cellPos].canWalkThrough = 1;
+		player.ammoutOfRock = player.ammoutOfRock + gameField.field[cellPos].droppedAmmountOfRes;
 	}
 }
 
-void Controller::playerHitUP(std::vector<WorldElem>& field, unsigned int& playerPOS, unsigned int x, Player& player)
+void Controller::playerHitUP(GameField& gameField, unsigned int& playerPOS, unsigned int x, Player& player)
 {
 
 	unsigned int playerPositionRow = playerPOS / x;
@@ -132,23 +135,23 @@ void Controller::playerHitUP(std::vector<WorldElem>& field, unsigned int& player
 		unsigned int hitPositionRow = playerPositionRow - 1;
 		unsigned int hitPos = hitPositionRow * x + playerPositionColumn;
 
-		cellHit(field, hitPos, player);
+		cellHit(gameField, hitPos, player);
 	}
 }
 
-void Controller::playerHitDOWN(std::vector<WorldElem>& field, unsigned int& playerPOS, unsigned int x, Player& player)
+void Controller::playerHitDOWN(GameField& gameField, unsigned int& playerPOS, unsigned int x, Player& player)
 {
 	unsigned int playerPositionRow = playerPOS / x;
 	unsigned int playerPositionColumn = playerPOS - playerPositionRow * x;
 
-	if (playerPositionRow != ((field.size() / x) - 1)) {
+	if (playerPositionRow != ((gameField.field.size() / x) - 1)) {
 		unsigned int hitPositionRow = playerPositionRow + 1;
 		unsigned int hitPos = hitPositionRow * x + playerPositionColumn;
-		cellHit(field, hitPos, player);
+		cellHit(gameField, hitPos, player);
 	}
 }
 
-void Controller::playerHitLEFT(std::vector<WorldElem>& field, unsigned int& playerPOS, unsigned int x, Player& player)
+void Controller::playerHitLEFT(GameField& gameField, unsigned int& playerPOS, unsigned int x, Player& player)
 {
 	unsigned int playerPositionRow = playerPOS / x;
 	unsigned int playerPositionColumn = playerPOS - playerPositionRow * x;
@@ -156,11 +159,11 @@ void Controller::playerHitLEFT(std::vector<WorldElem>& field, unsigned int& play
 	if (playerPositionColumn != 0) {
 		unsigned int hitPositionRow = playerPositionRow;
 		unsigned int hitPos = hitPositionRow * x + playerPositionColumn - 1;
-		cellHit(field, hitPos, player);
+		cellHit(gameField, hitPos, player);
 	}
 }
 
-void Controller::playerHitRIGHT(std::vector<WorldElem>& field, unsigned int& playerPOS, unsigned int x, Player& player)
+void Controller::playerHitRIGHT(GameField& gameField, unsigned int& playerPOS, unsigned int x, Player& player)
 {
 	unsigned int playerPositionRow = playerPOS / x;
 	unsigned int playerPositionColumn = playerPOS - playerPositionRow * x;
@@ -168,26 +171,26 @@ void Controller::playerHitRIGHT(std::vector<WorldElem>& field, unsigned int& pla
 	if (playerPositionColumn != x) {
 		unsigned int hitPositionRow = playerPositionRow;
 		unsigned int hitPos = hitPositionRow * x + playerPositionColumn + 1;
-		cellHit(field, hitPos, player);
+		cellHit(gameField, hitPos, player);
 	}
 }
 
-void Controller::playerHIT(std::vector<WorldElem>& field, unsigned int& playerPOS, unsigned int x, Player& player)
+void Controller::playerHIT(GameField& gameField, unsigned int& playerPOS, unsigned int x, Player& player)
 {
 	direction playerDirection = player.playerDirection;
 	switch(playerDirection){
 	
 	case(direction::UP):
-		playerHitUP(field, playerPOS, x, player);
+		playerHitUP(gameField, playerPOS, x, player);
 		break;
 	case(direction::DOWN):
-		playerHitDOWN(field, playerPOS, x, player);
+		playerHitDOWN(gameField, playerPOS, x, player);
 		break;
 	case(direction::LEFT):
-		playerHitLEFT(field, playerPOS, x, player);
+		playerHitLEFT(gameField, playerPOS, x, player);
 		break;
 	case(direction::RIGHT):
-		playerHitRIGHT(field, playerPOS, x, player);
+		playerHitRIGHT(gameField, playerPOS, x, player);
 		break;
 	case(direction::UNDEFINED):
 		break;

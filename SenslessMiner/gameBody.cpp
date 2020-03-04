@@ -10,20 +10,21 @@
 #include "menu.h"
 #include <time.h>
 
-void GameBody::start(unsigned int x, unsigned int y)
+void GameBody::start(size_t x, size_t y, bool randomElemHealth, bool randomAmmountOfDroppedResources)
 {
 	Menu menu;
 	Controller controller;
 	Player player;
-	GameField gameField(x, y);
+	GameField gameField;
 	Interface interface;
+	gameField.generateNewField(x, y, randomElemHealth, randomAmmountOfDroppedResources);
 	auto playerPOS = spawnPlayer(gameField.field);
 	interface.showField(gameField.field, x);
 
 	while (true)
 	{
 		int choice = controller.readKeyboard();
-		if (choice == 32)controller.playerHIT(gameField.field, playerPOS, x, player);
+		if (choice == 32)controller.playerHIT(gameField, playerPOS, x, player);
 		if (choice == 122 || choice == 90)menu.showMenu();
 		//W
 		if (choice == 87 || choice == 119) {
@@ -42,9 +43,11 @@ void GameBody::start(unsigned int x, unsigned int y)
 			controller.playerRIGHT(gameField.field, playerPOS, x, player);
 		}
 		interface.showField(gameField.field, x);
-		//std::cout << (int)player.playerDirection;
+		if (gameField.numberOfObstacles == 0) {
+			gameField.generateNewField(x, y, randomElemHealth, randomAmmountOfDroppedResources);
+			playerPOS = spawnPlayer(gameField.field);
+		}
 	}
-
 
 }
 

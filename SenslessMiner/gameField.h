@@ -7,7 +7,7 @@
 
 class GameField {
 public:
-	GameField(unsigned int x, unsigned int y);
+	void generateNewField(size_t x, size_t y, bool randomElemHealth, bool randomAmmountOfDroppedResources);
 	std::vector<WorldElem> field;
 	size_t numberOfObstacles = 0;
 };

@@ -7,6 +7,8 @@ private:
 	bool errorStatus = 0;
 public:
 	void showOption();
-	void showMessage(std::string variableName);
 	void fieldSizeGetter(unsigned int& variable, std::string variableName);
+	void showMessageSize(std::string variableName);
+	void fieldRandomGetter(bool variable, std::string variableName);
+	void showMessageRandomGetter(std::string variableName);
 };

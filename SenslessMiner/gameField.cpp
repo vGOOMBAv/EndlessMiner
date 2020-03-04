@@ -7,12 +7,15 @@
 #include "tree.h"
 #include "soil.h"
 
-
-GameField::GameField(unsigned int x, unsigned int y)
+void GameField::generateNewField(size_t x, size_t y, bool randomElemHealth, bool randomAmmountOfDroppedResources)
 {
-	FieldGenerator fieldGenerator(x,y);
+	if (field.empty() == false) {
+		field.clear();
+	}
 
-	for (auto i = 0; i < x*y; i++) {
+	FieldGenerator fieldGenerator(x, y);
+
+	for (auto i = 0; i < x * y; i++) {
 		size_t switchType = fieldGenerator.fieldGeneratorArray[i].type;
 		Soil soil;
 		Grass grass;
@@ -39,5 +42,4 @@ GameField::GameField(unsigned int x, unsigned int y)
 			break;
 		}
 	}
-
 }
