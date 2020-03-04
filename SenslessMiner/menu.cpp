@@ -18,7 +18,7 @@ void Menu::showMenu()
 		showMenu();
 	}
 	else {
-		std::cout << "SENSLESS MINER\n\n\n";
+		std::cout << "ENDLESS MINER\n\n\n";
 		std::cout << "1.Start new game\n";
 		std::cout << "2.Load\n";
 		std::cout << "3.Help\n";

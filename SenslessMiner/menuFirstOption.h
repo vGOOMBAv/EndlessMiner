@@ -9,6 +9,6 @@ public:
 	void showOption();
 	void fieldSizeGetter(unsigned int& variable, std::string variableName);
 	void showMessageSize(std::string variableName);
-	void fieldRandomGetter(bool variable, std::string variableName);
+	void fieldRandomGetter(bool& variable, std::string variableName);
 	void showMessageRandomGetter(std::string variableName);
 };

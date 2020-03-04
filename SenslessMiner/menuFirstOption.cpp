@@ -63,7 +63,7 @@ void MenuFirstOption::fieldSizeGetter(unsigned int& variable, std::string variab
 		fieldSizeGetter(variable, variableName);
 	}
 }
-void MenuFirstOption::fieldRandomGetter(bool variable, std::string variableName)
+void MenuFirstOption::fieldRandomGetter(bool& variable, std::string variableName)
 {
 	errorReason = "Please use only 0 or 1";
 	std::string buff;
@@ -84,6 +84,9 @@ void MenuFirstOption::fieldRandomGetter(bool variable, std::string variableName)
 		boolCheck = std::stoi(buff);
 		if (boolCheck > 1) {
 			errorStatus = 1;
+		}
+		else {
+			variable = (bool)boolCheck;
 		}
 	}
 	

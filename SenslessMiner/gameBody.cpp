@@ -10,16 +10,19 @@
 #include "menu.h"
 #include <time.h>
 
-void GameBody::start(size_t x, size_t y, bool randomElemHealth, bool randomAmmountOfDroppedResources)
+void GameBody::start(size_t x, size_t y, bool randomElemHealth, bool randomAmmountOfDroppedResources, bool newPlayer)
 {
 	Menu menu;
 	Controller controller;
 	Player player;
+	if (newPlayer) {
+		getPlayerName(player);
+	}
 	GameField gameField;
 	Interface interface;
-	gameField.generateNewField(x, y, randomElemHealth, randomAmmountOfDroppedResources);
+	gameField.generateNewField(x, y, randomElemHealth, randomAmmountOfDroppedResources, level);
 	auto playerPOS = spawnPlayer(gameField.field);
-	interface.showField(gameField.field, x);
+	interface.showInterface(gameField, player, x, level, playerPOS);
 
 	while (true)
 	{
@@ -42,9 +45,10 @@ void GameBody::start(size_t x, size_t y, bool randomElemHealth, bool randomAmmou
 		if (choice == 68 || choice == 100) {
 			controller.playerRIGHT(gameField.field, playerPOS, x, player);
 		}
-		interface.showField(gameField.field, x);
+		interface.showInterface(gameField, player, x, level, playerPOS);
 		if (gameField.numberOfObstacles == 0) {
-			gameField.generateNewField(x, y, randomElemHealth, randomAmmountOfDroppedResources);
+			level++;
+			gameField.generateNewField(x, y, randomElemHealth, randomAmmountOfDroppedResources, level);
 			playerPOS = spawnPlayer(gameField.field);
 		}
 	}
@@ -63,5 +67,12 @@ unsigned int GameBody::spawnPlayer(std::vector<WorldElem>& field)
 	auto i = rand() % freeCell.size();
 	field[i].playerPosition = 1;
 	return i;
+}
+
+void GameBody::getPlayerName(Player& player)
+{
+	clearScreen();
+	std::cout << "Enter your name: ";
+	std::cin >> player.playerName;
 }
 
