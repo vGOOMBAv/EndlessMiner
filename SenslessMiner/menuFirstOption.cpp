@@ -5,8 +5,8 @@
 
 void MenuFirstOption::showOption()
 {
-	size_t x = 0;
-	size_t y = 0;
+	unsigned int x = 0;
+	unsigned int y = 0;
 	bool randomElemHealth = 0;
 	bool randomAmmountOfDroppedResources = 0;
 	
